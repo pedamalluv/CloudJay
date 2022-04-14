@@ -1,0 +1,38 @@
+@import "../../styles/helpers/variables";
+.cj-project-details-container {
+    padding: 0;
+    h2.page-title {
+        display: inline-flex;
+    }
+    .source-destination {
+        display: inline-flex;
+        border-left: 1px solid #e7e9ed;
+        padding-left: 1rem;
+        margin-left: 1rem;
+        font-size: 1rem;
+        color: var(--ColorSecondary);
+        align-items: center;
+        i {
+            color: var(--ColorPrimary);
+        }
+    }
+    .col-block-container {
+        display: flex;
+        .col-blocks {
+            width: calc(100% / 4);
+            align-items: flex-end;
+            padding: 0 1rem;
+            border-right: 1px solid #e7e9ed;
+            &:first-child {
+                padding-left: 0;
+            }
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+    .table-pagination {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}

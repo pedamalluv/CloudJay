@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+@import "helpers/_normalize";
+@import "helpers/_variables";
+@import "elements/_form";
+@import "elements/_overrides";
+@import "elements/elements";
+html,
+body {
+    background-color: var(--bodyBgColor);
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ColorSecondart);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}

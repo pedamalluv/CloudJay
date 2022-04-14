@@ -1,0 +1,65 @@
+<div class="container-fluid cj-create-project-container">
+    <div class="row">
+        <div class="col">
+            <h2 class="page-title">Create a New Project</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div>
+                <div class="stepper-nav">
+
+                    <div [ngClass]="{'completed': true, 'active': false, 'todo': false}">
+                        <span></span>
+                        <p>Choose Source</p>
+                    </div>
+
+                    <div [ngClass]="{'completed': false, 'active': true, 'todo': false}">
+                        <span>2</span>
+                        <p>Select Files</p>
+                    </div>
+
+                    <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
+                        <span>3</span>
+                        <p>Select Destination</p>
+                    </div>
+                    <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
+                        <span>4</span>
+                        <p>Preview</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedTab === 1">
+        <div class="col">
+            <div class="white-panel mt-4">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="section-title">Select Source Cloud</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="cloud-container">
+                            <div class="cloud shadow-sm">
+                                <img src="../../assets/images/cloud-services/one-drive.png" alt="One-drive">
+                                <p class="cloud-name">One Drive</p>
+                            </div>
+                            <div class="cloud shadow-sm">
+                                <img src="../../assets/images/cloud-services/google-cloud.png" alt="One-drive">
+                                <p class="cloud-name">Google Cloud</p>
+                            </div>
+                            <div class="cloud shadow-sm">
+                                <img src="../../assets/images/cloud-services/dropbox.png" alt="One-drive">
+                                <p class="cloud-name">Dropbox</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

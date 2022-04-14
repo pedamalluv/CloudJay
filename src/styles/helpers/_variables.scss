@@ -1,0 +1,36 @@
+// @import "../../../node_modules/bootstrap/scss/mixins";
+// @import "../../../node_modules/bootstrap/scss/variables";
+:root {
+    --bodyBgColor: #F2F3FD;
+    --ColorPrimary: #8593e8;
+    --ColorSecondary: #5c5962;
+    --buttonBG: #8593e8;
+    --buttonHoverBG: #5a6de0;
+    --ColorHeaderBG: #ffffff;
+    --linkColor: #8593e8;
+    --linkHoverColor: #5a6de0;
+    --lhnBgColor: #ffffff;
+}
+
+table {
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+}
+
+$primary: #8593e8;
+$container-padding: 0 15px;
+$header-height: 56px;
+$lhn-width: 20rem;
+$primary-tint-90: #E5E8FA;
+$primary-tint-100: #F2F3FD;

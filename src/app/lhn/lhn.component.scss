@@ -1,0 +1,40 @@
+@import "../../styles/helpers/variables";
+.app-lhn-container {
+    padding: 0;
+    height: calc(100vh - $header-height - 24px);
+    width: $lhn-width;
+    position: fixed;
+    left: 0.75rem;
+    margin-top: 0.35rem;
+    background-color: var(--lhnBgColor);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    border: 1px solid #e7e9ed;
+    .lhn-content {
+        padding: 0.5rem 0;
+        p {
+            color: var(--ColorSecondary);
+            opacity: 0.7;
+            margin: 0 1rem;
+            padding: 0 0 0.5rem 0;
+            border-bottom: 1px solid #e7e9ed;
+        }
+        .menu-list {
+            li {
+                font-size: 1rem;
+                padding: 0.875rem 1rem;
+                line-height: 1;
+                margin: 0.25rem;
+                border-radius: 0.25rem;
+                color: var(--ColorSecondary);
+                &:hover {
+                    color: var(--ColorPrimary);
+                }
+                &.selected {
+                    background-color: $primary-tint-100;
+                    color: #2d2341;
+                }
+            }
+        }
+    }
+}
