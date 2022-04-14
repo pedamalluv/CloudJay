@@ -1,0 +1,121 @@
+@import "../../styles/helpers/variables";
+.cj-header-container {
+    padding: 0.5rem 1rem;
+    position: relative;
+    height: $header-height;
+    background-color: var(--ColorHeaderBG);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    border-bottom: 1px solid #e7e9ed;
+    .logo-placeholder {
+        min-width: 21rem;
+    }
+    .search-placeholder {
+        position: relative;
+        .form-control {
+            width: 500px;
+            padding-top: 0.6rem;
+            padding-bottom: 0.6rem;
+            height: 2.5rem;
+            border-color: #e7e9ed;
+            color: #5d6778;
+            &.search-input {
+                font-size: .875rem;
+                border-radius: 0.25rem;
+                padding-right: 3rem;
+                padding-left: 1rem;
+            }
+        }
+        .search-btn {
+            height: 18px;
+            width: 18px;
+            display: inline-flex;
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--linkColor);
+            transition: all 333ms ease-in-out;
+            &:hover {
+                color: var(--linkHoverColor);
+            }
+        }
+    }
+    .controls-placeholder {
+        position: absolute;
+        right: 2rem;
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: center;
+        color: #5d6778;
+        a.icon {
+            +a.icon {
+                margin-left: 1.25rem;
+            }
+            &:first-child {
+                margin-left: 1.25rem;
+                margin-right: 0.25rem;
+            }
+        }
+        .notifications-icon,
+        .settings-icon {
+            position: relative;
+            color: #5d6778;
+            transition: all 333ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+                color: var(--ColorPrimary); // darken($color: #5d6778, $amount: 30);
+            }
+            svg {
+                font-size: 1.25rem;
+                width: 24px;
+                height: 24px;
+            }
+        }
+        .notifications-icon {
+            .icon-badge {
+                display: inline-block;
+                border-radius: 50%;
+                position: absolute;
+                right: -0.45rem;
+                top: -0.3rem;
+                width: 20px;
+                height: 20px;
+                font-size: .6rem;
+                font-weight: bold;
+                padding-top: 1px;
+                color: #fff;
+                text-align: center;
+                background: #ec776c;
+                border: 2px solid #fff;
+            }
+        }
+        .settings-icon {}
+        .profile-icon {
+            display: inline-flex;
+            width: 2rem;
+            height: 2rem;
+            background-image: url("../../assets/images/avatar.svg");
+            background-repeat: no-repeat;
+            background-size: 1.25rem;
+            background-position: 50%;
+            border-radius: 50%;
+            background-color: #fafafa;
+            color: lighten($color: #5d6778, $amount: 30);
+            cursor: pointer;
+            &:after {
+                content: "";
+                border-top: 0.4em solid;
+                border-right: 0.4em solid transparent;
+                border-bottom: 0;
+                border-left: 0.4em solid transparent;
+                position: absolute;
+                top: 50%;
+                left: calc(100% + 0.5rem);
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

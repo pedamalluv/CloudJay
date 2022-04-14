@@ -1,0 +1,17 @@
+@import "../styles/helpers/variables";
+.cj-app-container {
+    padding: 0;
+    .header-placeholder {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .body-placeholder {
+        margin-top: calc($header-height + 0.25rem);
+    }
+    .content-placeholder {
+        margin-left: 21rem;
+        padding: 0.5rem 0;
+    }
+}

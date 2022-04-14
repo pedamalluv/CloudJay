@@ -1,0 +1,15 @@
+@import "../../styles/helpers/variables";
+.cj-project-listing-container {
+    padding: 0;
+    .btn {
+        display: flex;
+        align-items: center;
+        .cloud-icon {
+            margin-right: 0.25rem;
+        }
+    }
+    .table-pagination {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
