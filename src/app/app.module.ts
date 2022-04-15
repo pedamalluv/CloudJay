@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LHNComponent } from './lhn/lhn.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectListingComponent } from './project-listing/project-listing.component';
+import { SignInComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProjectListingComponent } from './project-listing/project-listing.compo
     HeaderComponent,
     LHNComponent,
     ProjectListingComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

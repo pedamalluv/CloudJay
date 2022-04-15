@@ -8,7 +8,6 @@
         <div class="col">
             <div>
                 <div class="stepper-nav">
-
                     <div [ngClass]="{'completed': true, 'active': false, 'todo': false}">
                         <span></span>
                         <p>Choose Source</p>
@@ -16,7 +15,7 @@
 
                     <div [ngClass]="{'completed': false, 'active': true, 'todo': false}">
                         <span>2</span>
-                        <p>Select Files</p>
+                        <p>Select Source Files</p>
                     </div>
 
                     <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
@@ -25,6 +24,10 @@
                     </div>
                     <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
                         <span>4</span>
+                        <p>Select Destination Files</p>
+                    </div>
+                    <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
+                        <span>5</span>
                         <p>Preview</p>
                     </div>
 
@@ -32,9 +35,9 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="selectedTab === 1">
+    <div class="row" *ngIf="selectedTab === 1 || selectedTab === 3">
         <div class="col">
-            <div class="white-panel mt-4">
+            <div class="step-1 white-panel mt-4">
                 <div class="row">
                     <div class="col">
                         <h3 class="section-title">Select Source Cloud</h3>
@@ -58,6 +61,51 @@
                         </div>
 
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedTab === 2 || selectedTab === 4">
+        <div class="row">
+            <div class="step-2 white-panel mt-4">
+                <div class="row">
+                    <div class="col">
+                        <h3 *ngIf="selectedFile == -1" class="section-title">Select Folder(s)&nbsp;/&nbsp;Files(s)</h3>
+                        <h3 *ngIf="selectedFile != -1" class="section-title with-icon"><i class="bi bi-arrow-left-circle-fill" (click)="selectFolder(false)"></i><i class="bi bi-folder2-open"></i>{{selectedFile.name}}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="folder-container">
+                            <div class="select-section">
+                                <span *ngIf="isSelect"><a>select-All</a><a>cancel-All</a></span>
+                                <span class="select-title" (click)="isSelect = !isSelect">{{ isSelect ? 'cancel' : 'select'}}</span>
+                            </div>
+                            <div *ngIf="selectedFile == -1">
+                                <div class="fblock" [ngClass]="{'selected': item.isSelected}" *ngFor="let item of folders" (click)="selectFolder(item)">
+                                    <i class="bi bi-{{item.type}}"></i>
+                                    <span><i *ngIf="item.isSelected" class="bi bi-check-circle-fill select-mark"></i>{{item.name}}</span>
+                                </div>
+                            </div>
+                            <div *ngIf="selectedFile != -1">
+                                <div class="fblock" *ngFor="let item of subFolders">
+                                    <i class="bi bi-{{item.type}}"></i>
+                                    <span><i *ngIf="item.isSelected" class="bi bi-check-circle-fill select-mark"></i>{{item.name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="button-panel white-panel">
+                <button class="btn btn-secondary" disabled="selectedTab != 1"><i class="bi bi-arrow-left mr-1"></i>&nbsp;Back</button>
+                <div>
+                    <button class="btn btn-link">Cancel</button>
+                    <button class="btn btn-primary">{{ selectedTab === 4 ? 'Transfer' : 'Next' }}&nbsp;<i class="bi bi-arrow-right ml-1" *ngIf="selectedTab != 5"></i></button>
                 </div>
             </div>
         </div>
