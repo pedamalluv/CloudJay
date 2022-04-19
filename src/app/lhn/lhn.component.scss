@@ -20,6 +20,9 @@
             border-bottom: 1px solid #e7e9ed;
         }
         .menu-list {
+            height: calc(100vh - 250px);
+            max-height: calc(100vh - 250px);
+            overflow: hidden auto;
             li {
                 font-size: 1rem;
                 padding: 0.875rem 1rem;
@@ -27,12 +30,18 @@
                 margin: 0.25rem;
                 border-radius: 0.25rem;
                 color: var(--ColorSecondary);
+                cursor: pointer;
                 &:hover {
                     color: var(--ColorPrimary);
                 }
                 &.selected {
                     background-color: $primary-tint-100;
                     color: #2d2341;
+                }
+                &.disabled-row {
+                    cursor: none;
+                    pointer-events: none;
+                    padding: 0;
                 }
             }
         }
