@@ -1,0 +1,144 @@
+@import "../../styles/helpers/variables";
+.cj-home-container {
+    padding: 0;
+    .button-panel {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 1.5rem 0;
+        .btn+.btn {
+            margin-left: 1rem;
+        }
+    }
+}
+
+$menu-width: 200px;
+$scene-width: calc(100vw - $lhn-width - 4.5rem);
+$scene-height: 400px;
+@keyframes slidein {
+    0% {
+        top: -$scene-height;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+}
+
+@keyframes slideout {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+    100% {
+        top: -$scene-height;
+        opacity: 0;
+    }
+}
+
+section.carousels-container {
+    background-color: #fff;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    #scene {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: $scene-width;
+        height: $scene-height;
+        position: relative;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        overflow: hidden;
+        border-radius: 0.25rem;
+        #left-zone {
+            background: get-color(white);
+            height: 75%;
+            flex-grow: 0;
+            display: flex;
+            width: $menu-width;
+            align-items: center;
+            justify-content: left;
+            .list {
+                display: flex;
+                list-style: none;
+                align-content: stretch;
+                flex-direction: column;
+                flex-grow: 1;
+                margin: 0;
+                padding: 0;
+                li.item {
+                    input[type="radio"] {
+                        display: none;
+                        &~label {
+                            display: block;
+                            opacity: 0.5;
+                            height: 50px;
+                            text-align: center;
+                            line-height: 50px;
+                            &:first-letter {
+                                text-transform: uppercase;
+                            }
+                            &:hover {
+                                opacity: 0.75;
+                                cursor: pointer;
+                            }
+                        }
+                        &~.content {
+                            position: absolute;
+                            left: $menu-width;
+                            top: -$scene-height;
+                            // width: calc(#{$scene-width} - #{$menu-width});
+                            height: $scene-height;
+                            animation-duration: 0.75s;
+                            animation-name: slideout;
+                            animation-timing-function: ease-out;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            h1 {
+                                &:first-letter {
+                                    text-transform: uppercase;
+                                }
+                            }
+                            p {
+                                max-width: 80%; // 50%;
+                                text-align: center;
+                            }
+                        }
+                        &:checked {
+                            &~label {
+                                opacity: 1;
+                                animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                                color: var(--ColorPrimary);
+                                border-right: solid 4px var(--ColorPrimary);
+                            }
+                            &~.content {
+                                animation-duration: 0.75s;
+                                animation-name: slidein;
+                                animation-fill-mode: forwards;
+                                animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #middle-border {
+            background-color: #E1E6EB;
+            height: 75%;
+            flex-grow: 1;
+            max-width: 2px;
+            z-index: 0;
+        }
+        #right-zone {
+            background: #fff;
+            height: 100%;
+            flex-grow: 3;
+        }
+    }
+}
