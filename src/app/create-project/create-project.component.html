@@ -10,34 +10,36 @@
                 <div class="stepper-nav">
                     <div [ngClass]="{'completed': true, 'active': false, 'todo': false}">
                         <span></span>
+                        <!-- if the step is complete dont populate the step no, it should be empty so that tick icon will be shown -->
                         <p>Choose Source</p>
                     </div>
-
                     <div [ngClass]="{'completed': false, 'active': true, 'todo': false}">
                         <span>2</span>
-                        <p>Select Source Files</p>
+                        <p>Select Source User</p>
                     </div>
-
                     <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
                         <span>3</span>
                         <p>Select Destination</p>
                     </div>
                     <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
                         <span>4</span>
-                        <p>Select Destination Files</p>
+                        <p>Select Destination User</p>
                     </div>
                     <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
                         <span>5</span>
+                        <p>Select File(s)</p>
+                    </div>
+                    <div [ngClass]="{'completed': false, 'active': false, 'todo': true}">
+                        <span>6</span>
                         <p>Preview</p>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="selectedTab === 1 || selectedTab === 3">
+    <div class="row" *ngIf="selectedTab === 1">
         <div class="col">
-            <div class="step-1 white-panel mt-4">
+            <div class="step-1 white-panel">
                 <div class="row">
                     <div class="col">
                         <h3 class="section-title">Select Source Cloud</h3>
@@ -65,34 +67,368 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="selectedTab === 2 || selectedTab === 4">
-        <div class="row">
-            <div class="step-2 white-panel mt-4">
+    <div class="row" *ngIf="selectedTab === 2">
+        <div class="col">
+            <div class="step-2 white-panel">
                 <div class="row">
                     <div class="col">
-                        <h3 *ngIf="selectedFile == -1" class="section-title">Select Folder(s)&nbsp;/&nbsp;Files(s)</h3>
-                        <h3 *ngIf="selectedFile != -1" class="section-title with-icon"><i class="bi bi-arrow-left-circle-fill" (click)="selectFolder(false)"></i><i class="bi bi-folder2-open"></i>{{selectedFile.name}}</h3>
+                        <label class="label-text">Selected Source</label>
+                        <div class="cloud-chip shadow-sm mt-2">
+                            <img src="../../assets/images/cloud-services/one-drive.png" alt="One-drive">
+                            <span>One Drive</span>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table app-table-hover mb-0 text-left">
+                                    <thead>
+                                        <tr>
+                                            <th class="cell">Select Source User</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio1">
+                                                    <label class="form-check-label" for="radio1">
+                                                        John Doe
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio2">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Victory Roy
+                                                    </label>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio3">
+                                                    <label class="form-check-label" for="radio3">
+                                                        Krish Kolly
+                                                    </label>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio4">
+                                                    <label class="form-check-label" for="radio4">
+                                                        John Molly Doe
+                                                    </label>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio5">
+                                                    <label class="form-check-label" for="radio5">
+                                                        Livingstone
+                                                    </label>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio6">
+                                                    <label class="form-check-label" for="radio6">
+                                                        Alfred Roy
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedTab === 3">
+        <div class="col">
+            <div class="step-1 white-panel">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="section-title">Select Source Cloud</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="folder-container">
-                            <div class="select-section">
-                                <span *ngIf="isSelect"><a>select-All</a><a>cancel-All</a></span>
-                                <span class="select-title" (click)="isSelect = !isSelect">{{ isSelect ? 'cancel' : 'select'}}</span>
+                        <div class="cloud-container">
+                            <div class="cloud shadow-sm">
+                                <img src="../../assets/images/cloud-services/one-drive.png" alt="One-drive">
+                                <p class="cloud-name">One Drive</p>
                             </div>
-                            <div *ngIf="selectedFile == -1">
-                                <div class="fblock" [ngClass]="{'selected': item.isSelected}" *ngFor="let item of folders" (click)="selectFolder(item)">
-                                    <i class="bi bi-{{item.type}}"></i>
-                                    <span><i *ngIf="item.isSelected" class="bi bi-check-circle-fill select-mark"></i>{{item.name}}</span>
-                                </div>
+                            <div class="cloud shadow-sm">
+                                <img src="../../assets/images/cloud-services/google-cloud.png" alt="One-drive">
+                                <p class="cloud-name">Google Cloud</p>
                             </div>
-                            <div *ngIf="selectedFile != -1">
-                                <div class="fblock" *ngFor="let item of subFolders">
-                                    <i class="bi bi-{{item.type}}"></i>
-                                    <span><i *ngIf="item.isSelected" class="bi bi-check-circle-fill select-mark"></i>{{item.name}}</span>
-                                </div>
+                            <div class="cloud shadow-sm">
+                                <img src="../../assets/images/cloud-services/dropbox.png" alt="One-drive">
+                                <p class="cloud-name">Dropbox</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedTab === 4">
+        <div class="col">
+            <div class="step-2 white-panel">
+                <div class="row">
+                    <div class="col">
+                        <label class="label-text">Selected Destination</label>
+                        <div class="cloud-chip shadow-sm mt-2">
+                            <img src="../../assets/images/cloud-services/google-cloud.png" alt="One-drive">
+                            <span>Google Cloud</span>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table app-table-hover mb-0 text-left">
+                                    <thead>
+                                        <tr>
+                                            <th class="cell">Select Destination User</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio1">
+                                                    <label class="form-check-label" for="radio1">
+                                                        John Doe
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio2">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Victory Roy
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio3">
+                                                    <label class="form-check-label" for="radio3">
+                                                        Krish Kolly
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio4">
+                                                    <label class="form-check-label" for="radio4">
+                                                        John Molly Doe
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio5">
+                                                    <label class="form-check-label" for="radio5">
+                                                        Livingstone
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cell">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="sourceUser" id="radio6">
+                                                    <label class="form-check-label" for="radio6">
+                                                        Alfred Roy
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedTab === 5">
+        <div class="col">
+            <div class="step-3 white-panel">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="section-title">Select Source Files</h3>
+                    </div>
+                    <div class="col">
+                        <h3 class="section-title">Select Destination Location</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="transfer-block">
+                            <div class="breadcum">
+                                <div><a>home</a> / <a>sub-folder</a> / <a>folder-loc2</a></div>
+                                <i class="bi bi-arrow-up-circle-fill"></i>
+                            </div>
+                            <ul class="folder-list">
+                                <li>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="" id="selectAll">
+                                        <label class="form-check-label" for="selectAll">Select All</label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="scroll-block">
+                                <ul class="folder-list">
+                                    <li *ngFor="let item of folders">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" value="" id="{{item.id}}">
+                                        </div>
+                                        <i class="bi bi-{{item.type}}"></i>
+                                        <span class="text-truncate">{{item.name}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="transfer-block">
+                            <div class="breadcum">
+                                <div><a>home</a> / <a>sub-folder</a> / <a>folder-loc2</a></div>
+                                <i class="bi bi-arrow-up-circle-fill"></i>
+                            </div>
+                            <div class="scroll-block">
+                                <ul class="folder-list">
+                                    <li *ngFor="let item of folders">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="destinationFileLocation" id="{{item.id}}" value="">
+                                        </div>
+                                        <i class="bi bi-{{item.type}}"></i>
+                                        <span class="text-truncate">{{item.name}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="selectedTab === 6">
+        <div class="col">
+            <div class="step-4 white-panel">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="section-title">Preview</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <span class="label-text">Selected Source Cloud</span>
+                        <div class="cloud-chip shadow-sm mt-2">
+                            <img src="../../assets/images/cloud-services/one-drive.png" alt="One-drive">
+                            <span>One Drive</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <span class="label-text">selected Destination Cloud</span>
+                        <div class="cloud-chip shadow-sm mt-2">
+                            <img src="../../assets/images/cloud-services/one-drive.png" alt="One-drive">
+                            <span>One Drive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <span class="label-text">Source User Name</span>
+                        <span class="label-value">Jhone Doe</span>
+                    </div>
+                    <div class="col-6">
+                        <span class="label-text">Destination User Name</span>
+                        <span class="label-value">Jhone Doe</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <span class="label-text">Selected Source Files</span>
+                        <div class="scroll-block">
+                            <ul class="folder-list">
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <span class="label-text">Selected Destination Location</span>
+                        <div>
+                            <ul class="folder-list">
+                                <li>
+                                    <i class="bi bi-folder"></i>
+                                    <span class="text-truncate">Xyzabc123qwert</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -105,7 +441,7 @@
                 <button class="btn btn-secondary" disabled="selectedTab != 1"><i class="bi bi-arrow-left mr-1"></i>&nbsp;Back</button>
                 <div>
                     <button class="btn btn-link">Cancel</button>
-                    <button class="btn btn-primary">{{ selectedTab === 4 ? 'Transfer' : 'Next' }}&nbsp;<i class="bi bi-arrow-right ml-1" *ngIf="selectedTab != 5"></i></button>
+                    <button class="btn btn-primary">{{ selectedTab === 6 ? 'Transfer' : 'Next' }}&nbsp;<i class="bi bi-arrow-right ml-1" *ngIf="selectedTab != 5"></i></button>
                 </div>
             </div>
         </div>

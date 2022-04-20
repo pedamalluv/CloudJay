@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-project.component.scss']
 })
 export class CreateProjectComponent {
-  selectedTab: any = 2;
+  selectedTab: any = 6;
   selectedFile: any = -1;
-  isSelect: boolean = false
+  isSelect: boolean = false;
   folders: any = [
     {id: 0, name: 'XYZ', type: 'folder', isSelected: false},
     {id: 1, name: 'ABC', type: 'folder', isSelected: false},
